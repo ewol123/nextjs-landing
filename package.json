@@ -1,0 +1,34 @@
+{
+  "name": "learn-starter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "local-test": "node ./scripts/local.runner.js -c conf/local.conf.js"
+  },
+  "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
+    "apollo-boost": "^0.4.9",
+    "browserstack-local": "^1.4.5",
+    "date-fns": "^2.13.0",
+    "emailjs-com": "^2.4.1",
+    "gray-matter": "^4.0.2",
+    "next": "9.3.5",
+    "next-with-apollo": "^5.0.1",
+    "nightwatch": "^1.3.5",
+    "peerjs": "^1.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "remark": "^12.0.0",
+    "remark-html": "^11.0.1",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "@types/react": "^16.9.34",
+    "typescript": "^3.8.3"
+  }
+}
