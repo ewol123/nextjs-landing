@@ -70,7 +70,7 @@ const DetailsSegment = (props: Props) => {
             horizontal
             style={{ margin: '3em 0em', textTransform: 'uppercase' }}
           >
-            <Link href="/register"><a>Register now</a></Link>
+            <a href="http://localhost:8081">Start now</a>
           </Divider>
           </Grid.Column>
         </Grid.Row>

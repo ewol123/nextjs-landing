@@ -10,12 +10,11 @@ const items = [
     header: 'First Step',
     description: "For starters sign up for a new account. Fill in the form and then click submit. Be sure to accept terms and conditions.",
     meta: 'Sign Up',
-    extra: <Link href="/register">
-    <a>
+    extra: <a href="http://localhost:8081">
     <Icon name="arrow right" />
-    Click here to register
+    Click here to start
     </a>
-    </Link>,
+  ,
   },
   {
     childKey: 1,

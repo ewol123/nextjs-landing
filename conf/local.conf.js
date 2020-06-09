@@ -52,7 +52,4 @@ nightwatch_config = {
     }
   }
 
-
-  console.log(JSON.stringify(nightwatch_config));
-  
   module.exports = nightwatch_config;
