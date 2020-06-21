@@ -10,8 +10,8 @@ RUN apk --no-cache --virtual build-dependencies add \
     make \
     g++ \
     && npm install \
-    && apk del build-dependencies \
-    && npm run build
+    && npm run build \
+    && apk del build-dependencies
 
 EXPOSE 81
 CMD [ "npm", "start" ]
