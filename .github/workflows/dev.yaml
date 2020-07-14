@@ -27,9 +27,6 @@ jobs:
             - name: npm install nextjs-landing 
               working-directory: nextjs-landing 
               run: npm install 
-            - name: lint nextjs-landing 
-              working-directory: nextjs-landing 
-              run: npm run lint-fix
             - name: test nextjs-landing
               working-directory: nextjs-landing 
               run: npm run local-test
