@@ -1,0 +1,56 @@
+name: nextjs-landing CI
+on:
+  push:
+    branches:
+      - stg
+jobs: 
+    build-and-publish: 
+        name: clone, test build docker nextjs-landing
+        runs-on: ubuntu-latest 
+        steps: 
+            - name: setup node 
+              uses: actions/setup-node@v1 
+              with: 
+                node-version: '12.0' 
+            - name: docker login
+              env:
+                  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+                  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+              run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            - name: checkout nextjs-landing 
+              uses: actions/checkout@v2 
+              with: 
+                repository: ewol123/nextjs-landing 
+                ref: stg   #specify branch here 
+                token: ${{ secrets.WORKFLOW }} #save secret in nextjs-landing repository 
+                path: nextjs-landing  #we can access this folder in our workspace 
+            - name: npm install nextjs-landing 
+              working-directory: nextjs-landing 
+              run: npm install 
+            - name: lint nextjs-landing 
+              working-directory: nextjs-landing 
+              run: npm run lint-fix
+            - name: test nextjs-landing
+              working-directory: nextjs-landing 
+              run: npm run local-test
+              env:
+                BROWSERSTACK_USERNAME: ${{ secrets.BROWSERSTACK_USERNAME }}
+                BROWSERSTACK_ACCESS_KEY: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
+            - name: get the commit sha
+              working-directory: nextjs-landing
+              id: get_sha
+              run: echo ::set-output name=COMMIT_SHA::$(git rev-parse --short HEAD)
+            - name: docker build nextjs-landing
+              working-directory: nextjs-landing
+              run: docker build -t gyulavaripeter/nextjs-landing:latest -t gyulavaripeter/nextjs-landing:stg-${{ steps.get_sha.outputs.COMMIT_SHA }} .
+            - name: docker push latest
+              run: docker push gyulavaripeter/nextjs-landing:latest
+            - name: docker push COMMIT_SHA
+              run: docker push gyulavaripeter/nextjs-landing:stg-${{ steps.get_sha.outputs.COMMIT_SHA }}
+            - name: commit changes to repository 
+              uses: stefanzweifel/git-auto-commit-action@v4 
+              with: 
+                commit_message: Apply automatic changes 
+                branch: stg 
+                commit_options: '--no-verify --signoff' 
+                repository: nextjs-landing
