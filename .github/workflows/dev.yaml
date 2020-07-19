@@ -35,7 +35,7 @@ jobs:
               working-directory: nextjs-landing
               run: docker build -t gyulavaripeter/nextjs-landing:latest -t gyulavaripeter/nextjs-landing:dev-${{ steps.get_sha.outputs.COMMIT_SHA }} .
             - name: run nextjs-landing inside docker for testing
-              run: docker run --name nextjs-landing -p81:81 gyulavaripeter/nextjs-landing:dev-${{ steps.get_sha.outputs.COMMIT_SHA }}
+              run: docker run --name nextjs-landing -p81:81 -d gyulavaripeter/nextjs-landing:dev-${{ steps.get_sha.outputs.COMMIT_SHA }}
             - name: test nextjs-landing
               working-directory: nextjs-landing 
               run: npm run local-test
