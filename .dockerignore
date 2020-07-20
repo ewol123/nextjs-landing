@@ -1,0 +1,6 @@
+node_modules
+tests_output
+local.log
+scripts
+tests
+conf
