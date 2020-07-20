@@ -33,7 +33,7 @@ const CompatibilitySegment = (props: Props) => {
         </Grid.Row>
         <Grid.Row centered >
           <Grid.Column style={styles.supportedText} width={12} textAlign="center" >
-          <p>Works on all platforms, use it in your favourite browser, or install it to your desktop / home screen</p>
+          <p id="comp-text1">Works on all platforms, use it in your favourite browser, or install it to your desktop / home screen</p>
           </Grid.Column>
         </Grid.Row>
       </Grid>

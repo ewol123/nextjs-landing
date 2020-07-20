@@ -66,6 +66,7 @@ class EmailForm extends Component<Props, State> {
             attached
             header='Do you have a problem?'
             content='Let us help! Fill out the form below and send us an email'
+            id="contact-text1"
           />
           <Form className='attached fluid segment' loading={this.state.formLoading}>
             <Form.Input label='Name' placeholder='Name' type='text' required onChange={this.setName} value={this.state.name} />

@@ -26,7 +26,7 @@ const DetailsSegment = (props: Props) => {
         <Grid.Row centered>
           <Grid.Column width={12} textAlign="center">
             <Image size="medium" src='/undraw_modern_design_v3wv.svg' style={styles.imageStyle} />
-              <Header as='h6' style={styles.header}>
+              <Header as='h6' style={styles.header} id="details-text1">
                 Install it like an application
               </Header>
               <p style={styles.contentText}>
@@ -56,7 +56,7 @@ const DetailsSegment = (props: Props) => {
           </Grid.Column>
           <Grid.Column width={12} textAlign="center">
             <Image size="large" src='/undraw_share_link_qtxe.svg' style={styles.imageStyle} />
-              <Header as='h6' style={styles.header}>
+              <Header as='h6' style={styles.header} id="details-text2">
                 Easy join
               </Header>
               <p style={styles.contentText}>

@@ -48,6 +48,7 @@ const HeadingSegment = (props: Props) => {
               content='Chat everywhere'
               inverted
               style={styles.mainHeader}
+              id="heading-text1"
             />
             <Header
               as='h2'

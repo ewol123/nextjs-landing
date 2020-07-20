@@ -27,7 +27,7 @@ const WelcomeSegment = (props: Props) => {
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={styles.header}>
+            <Header as='h3' style={styles.header} id="welcome-text1">
               We Help People Connect With Each Other
           </Header>
             <p style={styles.contentText}>
