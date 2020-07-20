@@ -7,8 +7,6 @@ module.exports = {
         .assert.containsText('#welcome-text1', 'We Help People')
         .waitForElementVisible('.ui.huge.button', 1000)
         .click('.ui.huge.button')
-        .waitForElementVisible('.ui.teal.center.aligned.header', 3000)
-        .assert.visible('.info.icon')
         .end();
     }
   };
